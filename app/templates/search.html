@@ -1,0 +1,16 @@
+{%extends 'base.html'%} 
+{% block content %}
+<div class="container">
+  <div class="row" style="margin-top:9%">
+  {% if project %}
+    {% for proj in project %}
+      <div class=" col-md-4">
+          <h3>{{proj.title}}</h3>
+          <img src="{{proj.project_image.url}}" width="100%"  class="img-responsive" alt="Image">
+          <p style="margin-top: 5%">{{proj.description}}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
