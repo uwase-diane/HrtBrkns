@@ -15,7 +15,7 @@
  <div class="col-md-6" style="border-radius: 20px; margin-right: 20px;" >
   
     <!-- <p class="title" style="font-family: 'Playfair Display', serif; border-bottom:3px solid #EBA234;; color: rgb(0, 0, 0); margin-bottom: 50%; ">{{image.title}}</p> -->
-    <img src="{{image.project_image.url}}" width="60%" style="margin-left:25%;margin-top: 20px;">
+    <img src="{{image.project_image.url}}" width="80%" style="margin-left:10%;margin-top: 20px; border-radius: 10px;">
  </div>
    <div class="col-md-5">
     <hr style="color: rgb(119, 115, 115); border:2px solid">
@@ -23,8 +23,8 @@
     <hr style="color: rgb(87, 84, 84); border:2px solid">
     <span>
                 
-        <a  href="{% url 'view' image.id%}"class="btn btn-default"> {{image.comments_set.all|length}} <i class="fa fa-comment" aria-hidden="true"> </i></a>
-        <a   href="{%url 'comment' image.id%}" class="btn btn-outline-secondary" style="margin-left: 60%; font-family: 'Kumbh Sans', sans-serif;">Leave a review</a>
+        <a  href="{% url 'view' image.id%}"class="btn btn-default"> {{image.comments_set.all|length}} comments<i class="fa fa-comments" aria-hidden="true"></i></a>
+        <a   href="{%url 'comment' image.id%}" class="btn btn-outline-secondary" style="margin-left: 50%; font-family: 'Kumbh Sans', sans-serif;">Leave a review</a>
         </span>
    </div>
        

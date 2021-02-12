@@ -178,16 +178,16 @@ click on the link below and express your emotions.</p>
 
 <div class="order-content">
   <h3>STORIES</h3>
-  <div class="row">
+  <div class="row row-cols-1 row-cols-md-6">
     {% for pro in all_projects %}
-      <div class="col-md-3" style="padding-top: 100px; ">
-          <div class="card">
+      <div class="col-md-4 " style="padding-top: 100px;">
+          <div class="card h-50">
             
-              <img src="{{pro.project_image.url}}" class="img-responsive" alt="Image"  width="100%" style="height:50vh;">
+              <img src="{{pro.project_image.url}}" class="card-img-top" alt="Image"  width="100%">
        
             
-                <p class="card-title"><strong>{{pro.title}} </strong></p>
-                <a href="{% url 'oneproject' pro.id %}" style="color: black; text-align: center;">Read Story..</a>
+                <p class="card-title"><strong>"{{pro.title}}"</strong></p>
+                <a href="{% url 'oneproject' pro.id %}" style="color: rgb(252, 252, 252); text-align: center;">Read Story..</a>
              
           </div>
       </div>
@@ -205,7 +205,7 @@ click on the link below and express your emotions.</p>
   
      
       <div class="col-md-6">
-        <h2>SUBSCRIBE FOR MORE INSIGHTS</h2>
+        <h2>SUBSCRIBE FOR MORE</h2>
       
       </div>
       <div class="div"></div>
