@@ -1,0 +1,232 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+{{block.super}}
+<style>
+    .card-footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(248, 241, 243);
+        color: white;
+        text-align: center;
+    }
+    #btv{
+        position:absolute;
+        top:40%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        color:white;
+        font-size:13px;
+        font-family:sans-serif ;
+    }
+    .mypage{
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .first{
+        background-size: cover;
+        background-repeat: no-repeat;
+        transition: all .5s;
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    .mypage:hover .first, .mypage:focus .first{
+      -ms-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+    .mypage:hover .first:before, .mypage:focus .first::before{
+      display:block;
+    }
+    .mypage:hover a , .mypage:focus a{
+      display:block;
+    }
+    .first::before{
+      content:"";
+      display: none;
+      position: absolute;
+      top:0;
+      left: 0;
+      background-color: black;
+      opacity: 0.6;
+    }
+    .titlee{
+      font-size: 15px;
+      color: rgb(44, 43, 43);
+      
+
+    }
+    .usernamee{
+      font-size: 12px;
+    }
+    h5 small{
+      font-size: 10px;
+    }
+      .formpage{
+    background-image:url("https://res.cloudinary.com/auca/image/upload/v1612959584/breads_knwxbd.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right;
+    height: 80vh;
+}
+
+h1{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding-top: 250px;
+    letter-spacing: 35px;
+    color: #fff;
+    font-family: 'Dosis', sans-serif;
+
+}
+p{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding-top: 50px;
+    
+    font-family: 'Nunito Sans', sans-serif;
+    color: rgb(109, 106, 106);
+   
+}
+h3{
+    font-family: 'Oxygen', sans-serif;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    padding-top: 70px;
+    
+    letter-spacing: 10px;
+}
+.mouse-animation{
+    padding-top: 100px;
+    margin-left:630px;
+}
+
+.mouse-animation{
+    animation: bounce 2.6s infinite;
+  }
+  @keyframes bounce {
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-55px);
+    }
+    60% {
+      transform: translateY(-60px);
+    }
+  }
+  .order-content{
+    background-attachment: fixed;
+    background-image: url("https://res.cloudinary.com/auca/image/upload/v1612959584/breads_knwxbd.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+.footer-content{
+    text-align: center;
+    padding-top: 60px;
+    font-family: 'Secular One', sans-serif;
+}
+.about-p{
+    width: 50%;
+    margin: auto;
+    padding-top: 70px;
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 600;
+}
+.about{
+    width: 100%;
+    height: 450px;
+}
+.container-story{
+  margin-top: 8%;
+}
+
+</style>
+<div id="carouselExampleSlidesOnly" class=" formpage carousel slide" data-bs-ride="carousel">
+    <h1>BROKEN HEARTS</h1>
+  
+    <p>It is a both a blessing and a curse to feel everything so deeply.</p>
+
+<img class="mouse-animation" src="https://res.cloudinary.com/auca/image/upload/v1601807260/mouse_click_royfom.png" alt="mouse-nav">
+
+</div>
+<div class="about">
+<h3>OPINION</h3>
+<p class="about-p">When you share your story, experiences, and truth with others, you gain a different level of respect. Listening to things and reading things with an autobiographical context is something that has the ability to grip someone emotionally. 
+    In doing so, people are forced to reaffirm or rethink themselves and their morals. When you are ready
+click on the link below and express your emotions.</p>
+    <a href="{%url 'upload'%}"  class="btn btn-outline-dark" style="width: 30%; margin: auto; margin-left: 450px; margin-top: 40px;">Share Your Story With Us</a>  
+</div>
+
+
+
+<div class="order-content">
+  <h3>STORIES</h3>
+  <div class="row">
+    {% for pro in all_projects %}
+      <div class="col-md-3" style="padding-top: 100px; ">
+          <div class="card">
+            
+              <img src="{{pro.project_image.url}}" class="img-responsive" alt="Image"  width="100%" style="height:50vh;">
+       
+            
+                <p class="card-title"><strong>{{pro.title}} </strong></p>
+                <a href="{% url 'oneproject' pro.id %}" style="color: black; text-align: center;">Read Story..</a>
+             
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+
+
+
+
+  <footer id="contact" class="footer-content">
+    <h3>CONTACT US</h3>
+    <div class="container" style="margin-top:10%">
+      <div class="row">
+  
+     
+      <div class="col-md-6">
+        <h2>SUBSCRIBE FOR MORE INSIGHTS</h2>
+      
+      </div>
+      <div class="div"></div>
+      
+    <div class=" col-md-5">
+
+      <div class="card">
+  
+      
+        <input class="text-dark" value="Your Email" placeholder="your email">
+        <br>
+        
+        <button class="btn btn-sm" style="background-color: #000000; color: white;">Subscribe here</button>
+ 
+  </div>
+      </footer>
+     
+</div>
+{% endblock %}
+{% block scripts %}
+{{block.super}}
+<script type="text/javascript" src="{%static 'js/newsletter.js'%}">
+</script>
+{% endblock %}
