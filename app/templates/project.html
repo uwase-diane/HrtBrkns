@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+
+<body>
+    <h3 style="text-align: center;font-family: 'Oxygen', sans-serif; padding-top: 13%;letter-spacing: 2px;">FULL STORY</h3>
+    <div class="row" style="padding-top: 30px;">
+
+        {% for image in ones_project %}
+ <div class="col-md-6" style="border-radius: 20px; margin-right: 20px;" >
+  
+    <!-- <p class="title" style="font-family: 'Playfair Display', serif; border-bottom:3px solid #EBA234;; color: rgb(0, 0, 0); margin-bottom: 50%; ">{{image.title}}</p> -->
+    <img src="{{image.project_image.url}}" width="60%" style="margin-left:25%;margin-top: 20px;">
+ </div>
+   <div class="col-md-5">
+    <hr style="color: rgb(119, 115, 115); border:2px solid">
+    <p style="font-family: 'Nunito Sans', sans-serif;">{{image.description}}</p>
+    <hr style="color: rgb(87, 84, 84); border:2px solid">
+    <span>
+                
+        <a  href="{% url 'view' image.id%}"class="btn btn-default"> {{image.comments_set.all|length}} <i class="fa fa-comment" aria-hidden="true"> </i></a>
+        <a   href="{%url 'comment' image.id%}" class="btn btn-outline-secondary" style="margin-left: 60%; font-family: 'Kumbh Sans', sans-serif;">Leave a review</a>
+        </span>
+   </div>
+       
+        
+     
+   
+    
+      <!-- <button class="btn btn-outline-success" style="border-radius:25px; margin-left: 47%; margin-top: 20px;"><a href="{{image.link}}" target="_blank" style="color: black; ">visite site</a></button> -->
+    </div>
+</body>
+
+{% endfor %}
+{% endblock %}
