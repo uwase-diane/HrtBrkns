@@ -1,0 +1,96 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<style>
+     body{
+    background-image:url("https://res.cloudinary.com/auca/image/upload/v1613000073/black_man_ozedmh.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+   
+  
+}
+  .profile{
+      text-align: center;
+      max-width: 300px;
+      box-shadow: 0 0 10px rgba(59, 59, 59, 0.829);
+      padding: 15px;
+      margin-top: 20%;
+      margin-left: 100px;
+      background: rgb(151, 149, 149);
+    
+  }
+  .profile_image{
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: block;
+      
+  }
+  .profile_name{
+      font-size: 1.2em;
+      font-weight: bold;
+      color:white;
+  }
+  .profile_title{
+      margin-bottom: 30px;
+      color:white;
+      font-size: 15px;
+  }
+  .div{
+    
+    border-left: 2px solid rgb(148, 148, 148);
+    height: 520px;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: 80px;
+}
+.img-area{
+ display: flex;
+ flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+flex-direction: row;
+}
+.single-img{
+    padding: 0 5px 5px;
+
+}
+
+</style>
+<body>
+    <div class="row">
+    <div class="col-md-6">
+    <div class="profile">
+        <img src="{{my_profile.profile_picture.url}}" class="profile_image">
+        <div class="profile_name">{{my_profile.user}}</div>
+
+        <div class="profile_title">"{{my_profile.bio}}"</div>
+        <a class="btn btn-outline-light" href="{%url 'edit'%}">Add photo</a>
+    </div>
+</div>
+<div class="div"></div>
+<div class=" col-md-5" style="padding-top: 100px;">
+    <h3 style="font-family: 'Nunito Sans', sans-serif; color: rgb(194, 189, 189);">MY STORIES</h3>
+    <br>
+    <br>
+    <div class="row">
+    {% for x in my_projects %}
+    <div class="col-md-4 wrapper">
+        <div class="img-area">
+            <div class="single-img"><img src="{{x.project_image.url}}"alt="Image" style="height: 28vh;" width="100%">
+</div>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+</div>
+</body>
+
+{% endblock %}
