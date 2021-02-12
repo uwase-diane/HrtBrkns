@@ -1,0 +1,82 @@
+{% load static %}
+
+<style>
+    
+    .navi{
+       margin-left: 40%;
+       letter-spacing: 2px;
+    
+    }
+    
+    /* .box{
+       position: relative;
+        height: 40px;
+        border-radius: 10px;
+        background: #a7376f;
+        
+    }
+    .box:hover > .search-txt{
+        width: 100px;
+        padding: 0 6px;
+    }
+    .box:hover > .search-txt{
+        background: white;
+    }
+    .search-btn{
+        color: #e84118;
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        background: #2f3640;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        
+    }
+    */
+    .search-txt{
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0;
+        color: #fff;
+        
+    } 
+  a{
+      font-size: 15px;
+  }
+</style>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg fixed-top">
+        <img class="nav-link" src="https://res.cloudinary.com/auca/image/upload/v1612973260/logo_zuguii.png" href="{%url 'index'%}">
+        
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+ 
+ {% if user.is_authenticated %}
+ 
+   <div class="collapse navbar-collapse navi" id="navbarNavAltMarkup" style="font-family: 'Tajawal', sans-serif;">
+   <div class="navbar-nav">
+     <a class="nav-link active text-white" href="{% url 'myprofile' %}" style="font-weight: bold;">{{user.username}}</a>
+     <!-- <a class="nav-link text-white" href="/accounts/register/">Register</a> -->
+     <a class="nav-link" href="/accounts/password/change" style="color: rgb(192, 190, 190)">Change Password</a>
+     <a class="nav-link" href="/accounts/login" style="color: rgb(192, 190, 190)">Logout</a>
+     {% else %}
+    <a class='btn btn-default' href="/accounts/login" style="color: rgb(192, 190, 190)">Login</a>
+    
+
+{% endif %}
+<form action="{% url 'search' %}" class="form-inline my-2 my-lg-0" style="color: #fff;">
+    <input type="text" class="search-txt" name="project_name" placeholder="search"
+        style="border: 0px; border-bottom: 2px solid #fff; outline: none; margin-left: 17%;">
+        <i  aria-hidden="true"></i>
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+</form>
+</div>
+
+        </div>
+    </nav>

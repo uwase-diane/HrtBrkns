@@ -1,0 +1,75 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<style>
+  h3{
+      color: white; 
+      margin-left: 1%;
+      font-family: 'Spartan', sans-serif;
+  }
+  p{
+    font-family: 'Spartan', sans-serif;
+  }
+
+  form{
+    color: #000;
+
+  }
+  form input{
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin:  8px 0;
+    border-bottom: 1px solid;
+    font-family: 'Spartan', sans-serif;
+  }
+  
+    
+
+</style>
+<div class="container">
+  <div class="row">
+    <!-- Empty div -->
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      
+      <div class="panel panel-default" style="margin-top: 35%">
+
+        <div class="panel-heading">
+          <h3>Login</h3>
+        
+        </div>
+       
+        <div class="panel-body">
+<div class=" login col-md-20">
+
+
+          <form  action="/accounts/login/" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form%}
+
+            <div class="form-group">
+              <input type="submit" class="btn  btn-sm" style="background-color: rgb(20, 20, 20);color: white;" value="Login">
+            </div>
+
+            <input type="hidden" name="next" value="{{next}}" class="textbox">
+
+          </form>
+        </div>
+
+        </div>
+
+      </div>
+      {% if form.errors %}
+      <p> Password or Username is incorrect </p>
+    {% endif %}
+    <p>Don't have an account?? <a id="sign" href="/accounts/register/" style="color: white;"> sign up</a></p>
+    </div>
+    <!-- empty div -->
+    <div class="col-md-4"></div>
+  </div>
+</div>
+
+{% endblock %}

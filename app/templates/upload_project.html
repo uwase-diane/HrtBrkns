@@ -1,0 +1,58 @@
+{% load bootstrap4 %} 
+{% load static %}
+
+<style>
+    body{
+    background-image:url("https://res.cloudinary.com/auca/image/upload/v1612959577/138e3ce8689cace2e8d61c05e465113d_uc4cez.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right;
+    padding-top: 7%;
+  
+}
+.div{
+    border-left: 2px solid rgb(148, 148, 148);
+    height: 520px;
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    top: 60px;
+}
+</style>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+  <title>Upload</title>
+  {{form.media}}
+  {% block styles %} 
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+  {% endblock %}
+</head>
+
+<body >
+    <div class="row">
+    <div class="col-md-6" style="padding-top: 100px; margin-left: 50px; color: rgb(189, 189, 189); font-family: 'Nunito Sans', sans-serif;">
+    <h1>YOUR STORY MATTER</h1>
+    </div>
+<div class="div"></div>
+<div class=" col-md-5">
+  <form  action="{%url 'upload' %}" method="post" enctype="multipart/form-data" style="color: white;font-family: 'Nunito Sans', sans-serif;">
+    {%csrf_token%}
+    {% bootstrap_form form%}
+    <input type="submit" class="btn btn-outline-light " value="Post" style="width: 100%;">
+  </form>
+</div>
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} {% endblock %}
+</div>
+</body>
+</html>
