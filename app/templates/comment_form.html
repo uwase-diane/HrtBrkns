@@ -1,0 +1,66 @@
+
+{% load bootstrap4 %} 
+{% load static %}
+<style>
+    body{
+    background-image:url("https://res.cloudinary.com/auca/image/upload/v1612959577/138e3ce8689cace2e8d61c05e465113d_uc4cez.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right;
+    height: 80vh;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+.div{
+    border-left: 2px solid rgb(148, 148, 148);
+    height: 150px;
+    position: absolute;
+    left: 49%;
+    margin-left: -20px;
+    top: 120px;
+}
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+  <title>Comment</title>
+  {{form.media}}
+  {% block styles %} 
+  {% bootstrap_css %}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}"> 
+  {% endblock %}
+</head>
+<body>
+<div class="container" style="margin-top:10%">
+    <div class="row">
+
+   
+    <div class="col-md-6">
+        <h1 style="color: rgb(218, 216, 216); font-family: 'Nunito Sans', sans-serif;">LEAVE A COMMENT HERE</h1>
+    
+    </div>
+    <div class="div"></div>
+    
+  <div class=" col-md-5">
+  <form  action="{%url 'comment' proj_id%}" method="post" enctype="multipart/form-data" style="color: white; font-family: 'Nunito Sans', sans-serif;">
+    {%csrf_token%}
+  
+    {% bootstrap_form form%}
+
+    <input type="submit" class="btn btn-outline-light" style="width: 100%;" value="Post">
+</div>
+  </form>
+</div>
+
+
+   {% block scripts %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% bootstrap_javascript %} 
+  {% endblock %}
+</div>
+</body>
+</html>
